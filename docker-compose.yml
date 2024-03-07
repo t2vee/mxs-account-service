@@ -1,0 +1,7 @@
+version: "3.9"
+services:
+  mxs-avatar-service:
+    build:
+      context: .
+    ports:
+      - '3000:3000'
