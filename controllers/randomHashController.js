@@ -16,7 +16,7 @@ function generateHash(input) {
  */
 function generateMultipleHashes(baseString) {
     const hashes = [];
-    for (let i = 1; i <= 9; i++) {
+    for (let i = 1; i <= 8; i++) {
         const uniqueString = `${baseString}-${i}-${new Date().getTime()}`;
         const hash = generateHash(uniqueString);
         hashes.push(hash);
