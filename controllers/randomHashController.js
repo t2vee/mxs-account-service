@@ -12,12 +12,14 @@ function generateHash(input) {
 /**
  * Generates multiple unique hashes from a base string.
  * @param {string} baseString - The base string for hash generation.
+ * @param {number} noHashes - The maximum number of hashes to generate
+ * @param {number} hashOffset
  * @returns {Array<string>} - An array of unique hashes.
  */
-function generateMultipleHashes(baseString) {
+function generateMultipleHashes(baseString, noHashes = 8, hashOffset = 0) {
     const hashes = [];
-    for (let i = 1; i <= 8; i++) {
-        const uniqueString = `${baseString}-${i}-${new Date().getTime()}`;
+    for (let i = 1; i <= noHashes; i++) {
+        const uniqueString = `${baseString}-${i}-${new Date().getTime()}-${hashOffset}`;
         const hash = generateHash(uniqueString);
         hashes.push(hash);
     }
@@ -48,8 +50,10 @@ const getNextGenNum = createGenNumHandler();
  */
 exports.generateHashURLs = (req, res) => {
     const { uniqueString } = req.params;
-    let { genNum } = req.params; // This will be a string
-    const hashes = generateMultipleHashes(uniqueString);
+    let { genNum } = req.params;
+    const limit = req.query.limit;
+    const offset = req.query.offset;
+    const hashes = generateMultipleHashes(uniqueString, limit, offset);
 
     // Convert genNum to a number if it's numeric, otherwise pass 'r'
     const numericGenNum = isNaN(parseInt(genNum)) ? 'r' : parseInt(genNum);
