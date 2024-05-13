@@ -1,20 +1,23 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const identiconRoutes = require('./routes');
+const { loadModel } = require('./lib/modelLoader');
+const avatarServiceRouter = require('./routes');
 
 const app = express();
-const PORT = process.env.PORT || 3005;
 
 app.use(express.json());
 
 const corsOptions = {
-    origin: 'http://127.0.0.1:5173/',
+    origin: process.env.CORS_ALLOWED_ORIGIN,
     optionsSuccessStatus: 200
 };
-app.use(cors());
+app.use(cors(corsOptions));
 
-app.use('/', identiconRoutes);
+app.use('/', avatarServiceRouter);
 
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+loadModel().then(() => {
+    app.listen(process.env.PORT || 3005, () => {
+        console.log(`Server running on port ${process.env.PORT || 3005}`);
+    });
 });

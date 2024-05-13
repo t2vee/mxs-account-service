@@ -8,7 +8,7 @@ const { createCanvas } = require('canvas');
  */
 exports.generateHashiconImage = (req, res) => {
     const { hash } = req.params;
-    const size = 200; // Specify the size of the identicon
+    const size = 128; // Specify the size of the identicon
 
     try {
         // Override the createCanvas function to use the 'canvas' library

@@ -1,4 +1,3 @@
-const { createCanvas } = require('canvas');
 const monster = require('../utils/monsterid.min.js');
 const DEFAULT_SIZE = 128;
 /**

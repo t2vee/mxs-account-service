@@ -7,7 +7,7 @@ const jdenticon = require('jdenticon');
  */
 exports.generateIdenticonImage = (req, res) => {
     const { hash } = req.params;
-    const size = 200;
+    const size = 128;
 
     try {
         const svg = jdenticon.toSvg(hash, size);

@@ -1,4 +1,3 @@
-const { createCanvas } = require('canvas');
 const blockies = require('../utils/blockies.min');
 
 const DEFAULT_SIZE = 8;
