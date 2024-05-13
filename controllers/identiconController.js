@@ -10,8 +10,8 @@ exports.generateIdenticonImage = (req, res) => {
     const size = 128;
 
     try {
-        const svg = jdenticon.toSvg(hash, size);
-        res.setHeader('Content-Type', 'image/svg+xml');
+        const svg = jdenticon.toPng(hash, size);
+        res.setHeader('Content-Type', 'image/png');
         res.send(svg);
     } catch (error) {
         res.status(500).json({ error: 'Failed to generate identicon.' });
