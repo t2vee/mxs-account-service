@@ -3,13 +3,14 @@ const express = require('express');
 const cors = require('cors');
 const { loadModel } = require('./lib/modelLoader');
 const avatarServiceRouter = require('./routes');
+const getCorsOriginConfig = require('./lib/getCorsOriginConfig');
 
 const app = express();
 
 app.use(express.json());
 
 const corsOptions = {
-    origin: process.env.CORS_ALLOWED_ORIGIN.toString(),
+    origin: getCorsOriginConfig(),
     optionsSuccessStatus: 200,
     accessControlAllowCredentials: true,
     allowHeaders: ["Origin", "Content-Type", "Accept", "Authorization"],
