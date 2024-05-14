@@ -10,7 +10,11 @@ app.use(express.json());
 
 const corsOptions = {
     origin: process.env.CORS_ALLOWED_ORIGIN,
-    optionsSuccessStatus: 200
+    optionsSuccessStatus: 200,
+    accessControlAllowCredentials: true,
+    allowHeaders: ["Origin", "Content-Type", "Accept", "Authorization"],
+    methods: "GET,OPTIONS,POST",
+    maxAge: 86400,
 };
 app.use(cors(corsOptions));
 
