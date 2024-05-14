@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-    origin: process.env.CORS_ALLOWED_ORIGIN,
+    origin: process.env.CORS_ALLOWED_ORIGIN.toString(),
     optionsSuccessStatus: 200,
     accessControlAllowCredentials: true,
     allowHeaders: ["Origin", "Content-Type", "Accept", "Authorization"],
