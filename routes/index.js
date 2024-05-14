@@ -5,7 +5,6 @@ const { generateHashiconImage } = require('../controllers/hashiconController');
 const { generateHashURLs } = require('../controllers/randomHashController');
 const { generateMonsterIDImage } = require('../controllers/monsterIdController');
 const { generateBlockiesImage } = require('../controllers/blockiesController');
-const {serveImageController} = require("../controllers/serveImageController");
 const multer = require('multer');
 
 const upload = multer();
@@ -19,7 +18,5 @@ router.get('/avatar-service/v1/gen/4/:hash', generateBlockiesImage);
 
 router.post('/avatar-service/v1/avatar/check-nsfw', upload.single("file"), checkController.classifyImage)
 router.post('/avatar-service/v1/avatar/preprocess', upload.single("file"), checkController.processImage)
-
-router.get('/avatar-service/v1/serve-image', serveImageController)
 
 module.exports = router;
