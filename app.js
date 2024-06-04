@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const { loadModel } = require('./lib/modelLoader');
-const avatarServiceRouter = require('./routes');
+const checkRouter = require('./routes');
 const getCorsOriginConfig = require('./lib/getCorsOriginConfig');
 
 const app = express();
@@ -19,7 +19,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-app.use('/', avatarServiceRouter);
+app.use('/', checkRouter);
 
 loadModel().then(() => {
     app.listen(process.env.PORT || 3005, () => {
