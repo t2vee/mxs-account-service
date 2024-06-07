@@ -3,6 +3,10 @@
 A super simple service that checks the avatar for explicit images using the awesome [nsfwjs library](https://github.com/infinitered/nsfwjs)  
 It is designed to be used hand-in-hand with [Logto Account Dashboard](https://github.com/t2vee/Logto-Account-Dashboard)
 
+## minimum requirments
+Unfortunately due to the sheer size of tensorflow and the model itself.  
+This applciation **wont** run on mini systems, so anything LESS than 1vcpu and **2gb** of ram
+
 ## install
 You can isntall this app via docker and (unfortunately) only by docker as the moment  
 1. start by cloning this repository:
