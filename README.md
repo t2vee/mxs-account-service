@@ -12,7 +12,7 @@ $ git clone https://github.com/t2vee/nsfwjs-avatar-service
 2. configure variables in the .env.sample
 3. start the service with docker compose:
 ```
-docker compose up -d --build
+$ docker compose up -d --build
 ```
 4. expose container with a reverse proxy
 
