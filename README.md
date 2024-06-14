@@ -14,7 +14,7 @@ You can isntall this app via docker and (unfortunately) only by docker as the mo
 ```
 $ curl -O -L https://github.com/t2vee/nsfwjs-avatar-service/raw/main/docker-compose.yml
 ```
-2. configure variables in the .env.sample
+2. configure variables under `environment` in the docker-compose.yml
 3. start the service with docker compose:
 ```
 $ docker compose up -d
