@@ -5,3 +5,8 @@ services:
     restart: always
     ports:
       - '3005:3005'
+    environment:
+      - PORT # can be omitted, default is 3005
+      - CORS_ALLOWED_ORIGIN # the url of your application accesing the api. For logto account dashboard this would be the url of the worker
+      - NSFWJS_MODEL_LINK # url to the model you want to use for this api. Find out more here: https://github.com/infinitered/nsfwjs?tab=readme-ov-file#host-your-own-model
+      - PROD=true # should always be true. if for some reason you are changing it then you probably know what you are doing
